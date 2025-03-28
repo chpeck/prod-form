@@ -44,8 +44,8 @@
 		<ul class="list-group">
 			{#each reports as report}
 				<li class="list-group-item mb-3" on:click={() => navigateToReport(report._id)}>
-					<h5>{report.dateBatch}</h5>
-					<pre>{report.adhesiveType}</pre>
+					<h5>Batch: {new Date(report.date).toLocaleDateString()}-{report.tank}</h5>
+					<pre>Product {report.adhesiveType}</pre>
 					<div class="d-flex gap-2">
 						<!-- You can add an edit button here if needed -->
 						<button on:click={(e) => { e.stopPropagation(); deleteReport(report._id); }} class="btn btn-danger">

@@ -5,6 +5,7 @@
 
     let formElement;
     export let report;
+    export let batchId;
 
     // JSON Schema for the form
     const schema = {
@@ -118,7 +119,7 @@
 </script>
 
 <main class="container mt-4">
-    <h2 class="mb-4">Test Report</h2>
+    <h2 class="mb-4">Test Report {batchId}</h2>
     <div bind:this={formElement}></div>
 </main>
 

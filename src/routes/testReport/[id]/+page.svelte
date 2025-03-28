@@ -3,6 +3,22 @@
   import TestReport from '$lib/TestReport.svelte'
 	import { goto } from '$app/navigation';
   import { page } from '$app/stores';
+  import { onMount } from 'svelte';
+
+  let batchId;
+
+  onMount(async () => {
+    const { id } = $page.params;
+    const res = await fetch(`/api/reports/${id}`);
+
+    if (res.ok) {
+      let report = await res.json();
+		  batchId = `${new Date(report.date).toLocaleDateString()}-${report.tank}`
+    } else {
+      alert('Failed to fetch report.');
+      goto('/');
+    }
+  });
 
 	async function handleSubmit(event) {
     const { id } = $page.params;
@@ -22,5 +38,4 @@
 		}
 	}
 </script>
-
-<TestReport on:submit={handleSubmit} />
+<TestReport {batchId} on:submit={handleSubmit} />

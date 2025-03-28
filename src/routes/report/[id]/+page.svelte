@@ -13,7 +13,6 @@
 
     if (res.ok) {
       report = await res.json();
-      console.log('report fetch', report)
     } else {
       alert('Failed to fetch report.');
       goto('/');

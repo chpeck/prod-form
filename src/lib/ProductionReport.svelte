@@ -10,14 +10,14 @@
         components: [
             {
               type: "datetime",
-              key: "dateBatch",
-              label: "Date/Batch",
+              key: "date",
+              label: "Date",
               format: "yyyy-MM-dd",
               enableTime: false,
               datepicker: {
                 disableWeekends: false
               },
-              validate: { required: false }
+              validate: { required: true }
             },
             {
                 type: "select",
@@ -32,13 +32,13 @@
                     { label: "SCC", value: "SCC" },
                     { label: "HV SCC", value: "HV SCC" }
                 ]},
-                validate: { required: false }
+                validate: { required: true }
             },
             {
                 type: "number",
                 key: "tank",
                 label: "Tank",
-                validate: { required: false }
+                validate: { required: true }
             },
             {
                 type: "datagrid",
@@ -55,26 +55,26 @@
                           { label: "M42", value: "M42" },
                         ]},
 
-                        validate: { required: false }
+                        validate: { required: true }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "bagNo",
                         label: "Bag No",
-                        validate: { required: false }
+                        validate: { required: true }
                     }
                 ]
             },
@@ -92,26 +92,26 @@
                           { label: "ZO", value: "ZO" },
                           { label: "TZO", value: "TZO" },
                         ]},
-                        validate: { required: false }
+                        validate: { required: true }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "bagNo",
                         label: "Bag No",
-                        validate: { required: false }
+                        validate: { required: true }
                     }
                 ]
             },
@@ -128,20 +128,20 @@
                           { label: "551", value: "551" },
                           { label: "Tol", value: "Tol" },
                         ]},
-                        validate: { required: false }
+                        validate: { required: true }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                 ]
             },
@@ -160,20 +160,20 @@
                           { label: "Hex", value: "Hex" },
                           { label: "EA", value: "EA" },
                         ]},
-                        validate: { required: false }
+                        validate: { required: true }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: false }
+                        validate: { required: true }
                     },
                 ]
             },
