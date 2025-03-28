@@ -8,10 +8,9 @@ export async function GET() {
 }
 
 export async function POST({ request }) {
-  console.log('insert')
 	const data = await request.json();
 	const { db } = await connectToDatabase();
-	const res = await db.collection('reports').insertOne(data);
+	const timestampedData = { ...data, createdAt: new Date() };
+	const res = await db.collection('reports').insertOne(timestampedData);
 	return json({ insertedId: res.insertedId });
 }
-

@@ -17,7 +17,7 @@
               datepicker: {
                 disableWeekends: false
               },
-              validate: { required: true }
+              validate: { required: false }
             },
             {
                 type: "select",
@@ -32,13 +32,13 @@
                     { label: "SCC", value: "SCC" },
                     { label: "HV SCC", value: "HV SCC" }
                 ]},
-                validate: { required: true }
+                validate: { required: false }
             },
             {
                 type: "number",
                 key: "tank",
                 label: "Tank",
-                validate: { required: true }
+                validate: { required: false }
             },
             {
                 type: "datagrid",
@@ -55,26 +55,26 @@
                           { label: "M42", value: "M42" },
                         ]},
 
-                        validate: { required: true }
+                        validate: { required: false }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "bagNo",
                         label: "Bag No",
-                        validate: { required: true }
+                        validate: { required: false }
                     }
                 ]
             },
@@ -92,26 +92,26 @@
                           { label: "ZO", value: "ZO" },
                           { label: "TZO", value: "TZO" },
                         ]},
-                        validate: { required: true }
+                        validate: { required: false }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "bagNo",
                         label: "Bag No",
-                        validate: { required: true }
+                        validate: { required: false }
                     }
                 ]
             },
@@ -128,20 +128,20 @@
                           { label: "551", value: "551" },
                           { label: "Tol", value: "Tol" },
                         ]},
-                        validate: { required: true }
+                        validate: { required: false }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                 ]
             },
@@ -160,20 +160,20 @@
                           { label: "Hex", value: "Hex" },
                           { label: "EA", value: "EA" },
                         ]},
-                        validate: { required: true }
+                        validate: { required: false }
                     },
     
                     {
                         type: "number",
                         key: "qtyUsed",
                         label: "Qty Used (kg)",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                     {
                         type: "textfield",
                         key: "batchNo",
                         label: "Batch No",
-                        validate: { required: true }
+                        validate: { required: false }
                     },
                 ]
             },
@@ -217,7 +217,7 @@
 </script>
 
 <main class="container mt-4">
-    <h2 class="mb-4">Production Formulation Report</h2>
+    <h2 class="mb-4">Formulation Report</h2>
     <div bind:this={formElement}></div>
 </main>
 

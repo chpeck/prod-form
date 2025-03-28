@@ -1,6 +1,5 @@
 <script>
-  import FormulationReport from '$lib/FormulationReport.svelte'
-  import TestReport from '$lib/TestReport.svelte'
+  import QuantityReport from '$lib/QuantityReport.svelte'
 	import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
@@ -23,7 +22,6 @@
 	async function handleSubmit(event) {
     const { id } = $page.params;
     const { data, metadata } = event.detail
-    console.log('id', id, data)
 		const res = await fetch(`/api/reports/${id}`, {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
@@ -38,4 +36,4 @@
 		}
 	}
 </script>
-<TestReport {batchId} on:submit={handleSubmit} />
+<QuantityReport {batchId} on:submit={handleSubmit} />

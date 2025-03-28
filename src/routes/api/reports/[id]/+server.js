@@ -14,9 +14,10 @@ export async function GET({ params }) {
 export async function PUT({ params, request }) {
 	const { db } = await connectToDatabase();
 	const data = await request.json();
+	const updatedData = { ...data, updatedAt: new Date() };
 	await db.collection('reports').updateOne(
 		{ _id: new ObjectId(params.id) },
-		{ $set: data }
+		{ $set: updatedData }
 	);
 	return json({ updated: true });
 }
@@ -27,16 +28,3 @@ export async function DELETE({ params }) {
 	return json({ deleted: true });
 }
 
-export async function POST({ params, request }) {
-	const { db } = await connectToDatabase();
-	const data = await request.json();
-  console.log(params.id)
-	const result = await db.collection('reports').updateOne(
-		{ _id: new ObjectId(params.id) },
-		{ $set: data }
-	);
-	if (result.modifiedCount === 0) {
-		return json({ error: 'Report not found or no changes made' }, { status: 404 });
-	}
-	return json({ updated: true });
-}

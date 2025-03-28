@@ -73,9 +73,9 @@
                 validate: { required: true }
             },
             {
-                type: "textfield",
+                type: "number",
                 key: "additionalTime",
-                label: "Additional Time"
+                label: "Additional Time (hr)"
             },
             {
                 type: "textfield",

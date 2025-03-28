@@ -1,5 +1,5 @@
 <script>
-  import ProductionReport from '$lib/ProductionReport.svelte'
+  import FormulationReport from '$lib/FormulationReport.svelte'
   import TestReport from '$lib/TestReport.svelte'
 	import { goto } from '$app/navigation';
 
@@ -20,4 +20,4 @@
 	}
 </script>
 
-<ProductionReport on:submit={handleSubmit} />
+<FormulationReport on:submit={handleSubmit} />

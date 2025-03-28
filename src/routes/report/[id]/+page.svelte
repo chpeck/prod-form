@@ -1,6 +1,7 @@
 <script>
-  import ProductionReport from '$lib/ProductionReport.svelte'
+  import FormulationReport from '$lib/FormulationReport.svelte'
   import TestReport from '$lib/TestReport.svelte'
+  import QuantityReport from '$lib/QuantityReport.svelte'
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
@@ -21,7 +22,8 @@
 </script>
 
 {#if report}
-  <ProductionReport {report} />
+  <FormulationReport {report} />
   <TestReport {report} />
+  <QuantityReport {report} />
 {/if}
 

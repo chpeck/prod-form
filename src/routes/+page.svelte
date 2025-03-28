@@ -25,9 +25,12 @@
 		goto(`/report/${id}`);
 	}
 
-
   function addTestReport(id) {
 		goto(`/testReport/${id}`);
+  }
+
+  function addQuantityReport(id) {
+		goto(`/quantityReport/${id}`);
   }
 </script>
 
@@ -46,6 +49,7 @@
 				<li class="list-group-item mb-3" on:click={() => navigateToReport(report._id)}>
 					<h5>Batch: {new Date(report.date).toLocaleDateString()}-{report.tank}</h5>
 					<pre>Product {report.adhesiveType}</pre>
+					<pre>{new Date(report.createdAt)}</pre>
 					<div class="d-flex gap-2">
 						<!-- You can add an edit button here if needed -->
 						<button on:click={(e) => { e.stopPropagation(); deleteReport(report._id); }} class="btn btn-danger">
@@ -56,6 +60,12 @@
               Add Test Report
 						</button>
           {/if}
+					     {#if report.finalTesting && !report.quantity}
+						<button on:click={(e) => { e.stopPropagation(); addQuantityReport(report._id); }} class="btn btn-primary">
+					         Add Quantity Produced
+						</button>
+					     {/if}
+					
 					</div>
 				</li>
 			{/each}
