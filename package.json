@@ -21,8 +21,10 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@auth/core": "^0.38.0",
+		"@auth/sveltekit": "^1.8.0",
 		"dotenv": "^16.4.7",
 		"formiojs": "^4.21.6",
-		"mongodb": "^6.15.0"
+		"mongodb": "^6.15.0",
 	}
 }
