@@ -8,6 +8,7 @@
 		const res = await fetch('/api/reports', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
 			body: JSON.stringify(data)
 		});
 

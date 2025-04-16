@@ -11,10 +11,11 @@ export async function GET({ params }) {
 	return json(report);
 }
 
-export async function PUT({ params, request }) {
+export async function PUT({ params, request, locals }) {
+  const session = await locals.getSession()
 	const { db } = await connectToDatabase();
 	const data = await request.json();
-	const updatedData = { ...data, updatedAt: new Date() };
+	const updatedData = { ...data, updatedAt: new Date(), updatedBy: session.user };
 	await db.collection('reports').updateOne(
 		{ _id: new ObjectId(params.id) },
 		{ $set: updatedData }

@@ -49,17 +49,17 @@
 				<li class="list-group-item mb-3" on:click={() => navigateToReport(report._id)}>
 					<h5>Batch: {new Date(report.date).toLocaleDateString()}-{report.tank}</h5>
 					<pre>Product {report.adhesiveType}</pre>
-					<pre>{new Date(report.createdAt)}</pre>
+					<pre style="text-align: right; font-style: italic;">Created at {new Date(report.createdAt).toLocaleDateString()} by <img src="{report.createdBy.image}" alt="User Image" style="width: 20px; height: 20px; border-radius: 50%;"> {report.createdBy.name}</pre>
 					<div class="d-flex gap-2">
 						<!-- You can add an edit button here if needed -->
 						<button on:click={(e) => { e.stopPropagation(); deleteReport(report._id); }} class="btn btn-danger">
 							Delete
 						</button>
-          {#if report.finalTesting == null }
+			       {#if report.finalTesting == null }
 						<button on:click={(e) => { e.stopPropagation(); addTestReport(report._id); }} class="btn btn-primary">
-              Add Test Report
+			           Add Test Report
 						</button>
-          {/if}
+			       {/if}
 					     {#if report.finalTesting && !report.quantity}
 						<button on:click={(e) => { e.stopPropagation(); addQuantityReport(report._id); }} class="btn btn-primary">
 					         Add Quantity Produced

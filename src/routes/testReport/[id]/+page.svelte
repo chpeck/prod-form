@@ -23,10 +23,10 @@
 	async function handleSubmit(event) {
     const { id } = $page.params;
     const { data, metadata } = event.detail
-    console.log('id', id, data)
 		const res = await fetch(`/api/reports/${id}`, {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
 			body: JSON.stringify(data)
 		});
 

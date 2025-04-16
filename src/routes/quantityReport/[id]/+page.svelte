@@ -25,6 +25,7 @@
 		const res = await fetch(`/api/reports/${id}`, {
 			method: 'PUT',
 			headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
 			body: JSON.stringify(data)
 		});
 

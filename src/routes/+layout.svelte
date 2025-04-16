@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Brand</a>
+    <a class="navbar-brand" href="#">World Brand Adhesive</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -39,8 +39,22 @@
     </div>
   </div>
 </nav>
+{#if $page.data.session }
 
-{#if $page.data.session}
+  {#if $page.data.error }
+  <div class="alert alert-danger" role="alert">
+    {$page.data.error}
+  </div>
+  {:else}
   <slot></slot>
-{/if}
+  {/if}
 
+{:else}
+  <div class="d-flex justify-content-center align-items-center vh-100">
+  <div>
+    Please sign in to enter a report.
+    <hr/>
+    <a class="btn btn-primary" href="/auth/signin" data-sveltekit-preload-data="off">Sign in</a>
+  </div>
+  </div>
+{/if}

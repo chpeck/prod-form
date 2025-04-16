@@ -7,10 +7,11 @@ export async function GET() {
 	return json(reports);
 }
 
-export async function POST({ request }) {
+export async function POST({ request, locals }) {
+  const session = await locals.getSession()
 	const data = await request.json();
 	const { db } = await connectToDatabase();
-	const timestampedData = { ...data, createdAt: new Date() };
+	const timestampedData = { ...data, createdAt: new Date(), createdBy: session.user };
 	const res = await db.collection('reports').insertOne(timestampedData);
 	return json({ insertedId: res.insertedId });
 }
