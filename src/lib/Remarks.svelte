@@ -5,6 +5,7 @@
 
     let formElement;
     export let report;
+    export let readOnly;
 
     const schema = {
       components: [
@@ -12,6 +13,7 @@
           type: "datagrid", 
           key: "remarksList",
           label: "Remarks",
+          reorder: false,
           components: [
             {
               type: "textarea",
@@ -29,7 +31,7 @@
             }
           ]
         },
-        {
+        readOnly ? null : {
           type: "button",
           action: "submit",
           label: "Submit",
@@ -41,19 +43,15 @@
     onMount(async () => {
         if (formElement) {
             const { Formio } = await import('formiojs');
-            Formio.createForm(formElement, schema).then(form => {
+            Formio.createForm(formElement, schema, { readOnly } ).then(form => {
                 form.on('submit', (submission) => {
                     dispatch('submit', submission);
                 });
-                // Prepopulate remarks with timestamps
-                form.submission = {
-                  data: {
-                    remarksList: report.remarksList.map(r => ({ 
-                      remark: r.remark,
-                      timestamp: r.timestamp || new Date().toISOString()
-                    }))
-                  }
-                };
+                if (report) {
+                  form.submission = {
+                    data: report
+                  };
+                }
             });
         }
     });

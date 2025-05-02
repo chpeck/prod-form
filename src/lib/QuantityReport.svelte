@@ -6,6 +6,7 @@
     let formElement;
     export let report;
     export let batchId;
+    export let readOnly;
 
     // JSON Schema for the form
     const schema = {
@@ -42,7 +43,7 @@
                     },
                 ]
             },
-            {
+            readOnly ? null : {
                 type: "button",
                 action: "submit",
                 label: "Submit",
@@ -54,21 +55,16 @@
     onMount(async () => {
         if (formElement) {
             const { Formio } = await import('formiojs');
-            if (report) {
-                // Render the form in view-mode
-                Formio.createForm(formElement, schema, { readOnly: true }).then((form) => {
-                    // If the report is an object that contains the form data, set the data
-                    form.submission = {
-                       data: report
-                    }
+            Formio.createForm(formElement, schema, { readOnly } ).then(form => {
+                if (report) {
+                  form.submission = {
+                     data: report
+                  }
+                }
+                form.on('submit', (submission) => {
+                    dispatch('submit', submission);
                 });
-            } else {
-              Formio.createForm(formElement, schema).then(form => {
-                  form.on('submit', (submission) => {
-                      dispatch('submit', submission);
-                  });
-              });
-            }
+            });
         }
     });
 </script>

@@ -8,6 +8,7 @@
   import { page } from '$app/stores';
 
   let report;
+  let readOnly = true;
 
   onMount(async () => {
     const { id } = $page.params;
@@ -23,9 +24,9 @@
 </script>
 
 {#if report}
-  <FormulationReport {report} />
-  <TestReport {report} />
-  <QuantityReport {report} />
-  <Remarks {report} />
+  <FormulationReport {report} {readOnly} />
+  <TestReport {report} {readOnly} />
+  <QuantityReport {report} {readOnly} />
+  <Remarks {report} {readOnly} />
 {/if}
 
