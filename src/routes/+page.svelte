@@ -32,6 +32,11 @@
   function addQuantityReport(id) {
 		goto(`/quantityReport/${id}`);
   }
+
+  function addRemarks(id) {
+		goto(`/remarks/${id}`);
+  }
+
 </script>
 
 <main class="container mt-5">
@@ -65,6 +70,9 @@
 					         Add Quantity Produced
 						</button>
 					     {/if}
+							<button on:click={(e) => { e.stopPropagation(); addRemarks(report._id); }} class="btn btn-primary">
+					         Add Remarks
+						</button>
 					
 					</div>
 				</li>
