@@ -15,10 +15,10 @@
               label: "Date",
               format: "yyyy-MM-dd",
               enableTime: false,
-              datepicker: {
-                disableWeekends: false
-              },
-              validate: { required: false }
+              defaultValue: new Date().toISOString().split('T')[0],
+              validate: { 
+               required: true
+              }
             },
             {
                 type: "select",
@@ -33,13 +33,13 @@
                     { label: "SCC", value: "SCC" },
                     { label: "HV SCC", value: "HV SCC" }
                 ]},
-                validate: { required: false }
+                validate: { required: true }
             },
             {
                 type: "number",
                 key: "tank",
                 label: "Tank",
-                validate: { required: false }
+                validate: { required: true }
             },
             {
                 type: "datagrid",
