@@ -9,7 +9,7 @@
     const schema = {
       components: [
         {
-          type: "datagrid", // change from editgrid to datagrid
+          type: "datagrid", 
           key: "remarksList",
           label: "Remarks",
           components: [
@@ -18,7 +18,7 @@
               key: "remark",
               label: "Remark",
               placeholder: "Enter your remark here",
-              validate: { required: false },
+              validate: { required: true },
             },
             {
               type: "textfield",
@@ -43,7 +43,6 @@
             const { Formio } = await import('formiojs');
             Formio.createForm(formElement, schema).then(form => {
                 form.on('submit', (submission) => {
-                    console.log('submit')
                     dispatch('submit', submission);
                 });
                 // Prepopulate remarks with timestamps
