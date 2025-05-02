@@ -14,6 +14,8 @@
           key: "remarksList",
           label: "Remarks",
           reorder: false,
+          removeRow: false, // Added to hide the remove row button
+          disableRemove: true,
           components: [
             {
               type: "textarea",
@@ -49,7 +51,9 @@
                 });
                 if (report) {
                   form.submission = {
-                    data: report
+                    data: {
+                      remarksList: report.remarksList
+                    }
                   };
                 }
             });
