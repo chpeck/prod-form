@@ -2,6 +2,7 @@
   import FormulationReport from '$lib/FormulationReport.svelte'
   import TestReport from '$lib/TestReport.svelte'
   import QuantityReport from '$lib/QuantityReport.svelte'
+  import Remarks from '$lib/Remarks.svelte'
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
@@ -25,5 +26,6 @@
   <FormulationReport {report} />
   <TestReport {report} />
   <QuantityReport {report} />
+  <Remarks {report} />
 {/if}
 

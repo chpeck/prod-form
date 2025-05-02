@@ -43,13 +43,6 @@
                 ]
             },
             {
-                type: "textarea",
-                key: "remarks",
-                label: "General Remarks",
-                placeholder: "Enter your remarks here",
-                validate: { required: false }
-            },
-            {
                 type: "button",
                 action: "submit",
                 label: "Submit",

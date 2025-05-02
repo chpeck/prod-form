@@ -1,6 +1,5 @@
 <script>
   import FormulationReport from '$lib/FormulationReport.svelte'
-  import TestReport from '$lib/TestReport.svelte'
 	import { goto } from '$app/navigation';
 
 	async function handleSubmit(event) {

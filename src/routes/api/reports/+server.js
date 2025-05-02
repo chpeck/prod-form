@@ -3,7 +3,7 @@ import { json } from '@sveltejs/kit';
 
 export async function GET() {
 	const { db } = await connectToDatabase();
-	const reports = await db.collection('reports').find().toArray();
+	const reports = await db.collection('reports').find().sort({ createdAt: -1 }).toArray();
 	return json(reports);
 }
 
