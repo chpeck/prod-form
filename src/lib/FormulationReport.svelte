@@ -157,9 +157,16 @@
                         label: "Type",
                         data: { values: [
                           { label: "Tol", value: "Tol" },
-                          { label: "SBP", value: "SBP" },
-                          { label: "Hex", value: "Hex" },
                           { label: "EA", value: "EA" },
+                          { label: "MEK", value: "MEK" },
+                          { label: "TCE", value: "TCE" },
+                          { label: "MC", value: "MC" },
+                          { label: "PCE", value: "PCE" },
+                          { label: "MAC", value: "MAC" },
+                          { label: "DSP", value: "DSP" },
+                          { label: "Hex", value: "Hex" },
+                          { label: "DBP", value: "DBP" },
+                          { label: "CHX", value: "CHX" },
                         ]},
                         validate: { required: false }
                     },
